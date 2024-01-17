@@ -1,6 +1,8 @@
 import 'package:firstflutter/view/LoginPage.dart';
 import 'package:flutter/material.dart';
 
+import 'register_page.dart';
+
 class SplashPage extends StatefulWidget{
 
 
@@ -17,7 +19,7 @@ class SplashScreenState extends State<SplashPage> {
     super.initState();
     Future.delayed(const Duration(seconds: 4), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const LoginPage()));
+          context, MaterialPageRoute(builder: (context) => const RegisterWithPhoneNumber()));
     });
   }
 
