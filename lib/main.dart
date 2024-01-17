@@ -23,7 +23,7 @@ Future<void> main() async {
 
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Student Login Application",
+      title: "FirstFlutterApp",
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
@@ -93,9 +93,7 @@ class Home extends StatelessWidget {
             const Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
-                  "A sutdent login/register application\n"
-                      "with firebase authentication",
+                Text("Flutter Application",
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -125,9 +123,9 @@ showAlertDialog(BuildContext context) {
 
   // Set up the Alert Dialog
   AlertDialog alertDialog = AlertDialog(
-    title: const Text("Login Application"),
+    title: const Text("Flutter App"),
     content: const Text(
-        "This is the simple Student login application with firebase authentication\n"),
+        "This is the simple login application with firebase authentication\n"),
     actions: [okButton],
   );
 
