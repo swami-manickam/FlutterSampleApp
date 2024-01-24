@@ -29,7 +29,7 @@ class SplashScreenState extends State<SplashPage> {
         backgroundColor: Colors.white,
         body: Center(
           child: Image(
-            image: AssetImage("images/logo.png"),
+            image: AssetImage("/images/splash_banner.png",package: 'firstflutter'),
             width: 105,
             height: 105,
           ),
