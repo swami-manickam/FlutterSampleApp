@@ -5,7 +5,10 @@ import 'dart:async';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
 class Verificatoin extends StatefulWidget {
-  const Verificatoin({ Key? key }) : super(key: key);
+
+
+  final phoneNo;
+  const Verificatoin({ Key? key,this.phoneNo }) : super(key: key);
 
   @override
   _VerificatoinState createState() => _VerificatoinState();
@@ -75,7 +78,7 @@ class _VerificatoinState extends State<Verificatoin> {
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               height: MediaQuery.of(context).size.height,
               width: double.infinity,
               child: Column(
@@ -133,7 +136,7 @@ class _VerificatoinState extends State<Verificatoin> {
                   FadeInDown(
                     delay: Duration(milliseconds: 500),
                     duration: Duration(milliseconds: 500),
-                    child: Text("Please enter the 4 digit code sent to \n +91 9712-538-406",
+                    child: Text("Please enter the 4 digit code sent to \n ${widget.phoneNo}",
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 16, color: Colors.grey.shade500, height: 1.5),),
                   ),
@@ -141,11 +144,11 @@ class _VerificatoinState extends State<Verificatoin> {
 
                   // Verification Code Input
                   FadeInDown(
-                    delay: Duration(milliseconds: 600),
-                    duration: Duration(milliseconds: 500),
+                    delay: const Duration(milliseconds: 600),
+                    duration: const Duration(milliseconds: 500),
                     child: VerificationCode(
                       length: 4,
-                      textStyle: TextStyle(fontSize: 20, color: Colors.black),
+                      textStyle: const TextStyle(fontSize: 20, color: Colors.black),
                       underlineColor: Colors.black,
                       keyboardType: TextInputType.number,
                       underlineUnfocusedColor: Colors.black,
@@ -159,10 +162,10 @@ class _VerificatoinState extends State<Verificatoin> {
                   ),
 
 
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
                   FadeInDown(
-                    delay: Duration(milliseconds: 700),
-                    duration: Duration(milliseconds: 500),
+                    delay: const Duration(milliseconds: 700),
+                    duration: const Duration(milliseconds: 500),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -172,15 +175,15 @@ class _VerificatoinState extends State<Verificatoin> {
                               if (_isResendAgain) return;
                               resend();
                             },
-                            child: Text(_isResendAgain ? "Try again in " + _start.toString() : "Resend", style: TextStyle(color: Colors.blueAccent),)
+                            child: Text(_isResendAgain ? "Try again in $_start" : "Resend", style: const TextStyle(color: Colors.blueAccent),)
                         )
                       ],
                     ),
                   ),
                   const SizedBox(height: 50,),
                   FadeInDown(
-                    delay: Duration(milliseconds: 800),
-                    duration: Duration(milliseconds: 500),
+                    delay: const Duration(milliseconds: 800),
+                    duration: const Duration(milliseconds: 500),
                     child: MaterialButton(
                       elevation: 0,
                       onPressed: _code.length < 4 ? () => {} : () { verify(); },
@@ -195,7 +198,7 @@ class _VerificatoinState extends State<Verificatoin> {
                           strokeWidth: 3,
                           color: Colors.black,
                         ),
-                      ) : _isVerified ? Icon(Icons.check_circle, color: Colors.white, size: 30,) : Text("Verify", style: TextStyle(color: Colors.white),),
+                      ) : _isVerified ? const Icon(Icons.check_circle, color: Colors.white, size: 30,) : const Text("Verify", style: TextStyle(color: Colors.white),),
                     ),
                   )
                 ],)

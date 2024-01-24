@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:firstflutter/view/LoginPage.dart';
 import 'package:firstflutter/view/verification_code.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
@@ -27,26 +28,32 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.network('https://ouch-cdn2.icons8.com/n9XQxiCMz0_zpnfg9oldMbtSsG7X6NwZi_kLccbLOKw/rs:fit:392:392/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNDMv/MGE2N2YwYzMtMjQw/NC00MTFjLWE2MTct/ZDk5MTNiY2IzNGY0/LnN2Zw.png', fit: BoxFit.cover, width: 280, ),
+                //Image.network('https://ouch-cdn2.icons8.com/n9XQxiCMz0_zpnfg9oldMbtSsG7X6NwZi_kLccbLOKw/rs:fit:392:392/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNDMv/MGE2N2YwYzMtMjQw/NC00MTFjLWE2MTct/ZDk5MTNiY2IzNGY0/LnN2Zw.png', fit: BoxFit.cover, width: 280, ),
+                const Image(
+                  image: AssetImage("/images/register_banner.png"),
+                  width: 280,
+                  fit: BoxFit.cover,
+                  height: 100,
+                ),
                 const SizedBox(height: 50,),
                 FadeInDown(
-                  child: Text('REGISTER',
+                  child: Text('SIGN UP',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24, color: Colors.grey.shade900),),
                 ),
                 FadeInDown(
-                  delay: Duration(milliseconds: 200),
+                  delay: const Duration(milliseconds: 200),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
-                    child: Text('Enter your phone number to continu, we will send you OTP to verifiy.',
+                    child: Text('Enter your phone number to continue, we will send you OTP to verify.',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 14, color: Colors.grey.shade700),),
                   ),
                 ),
-                SizedBox(height: 30,),
+                const SizedBox(height: 30,),
                 FadeInDown(
-                  delay: Duration(milliseconds: 400),
+                  delay: const Duration(milliseconds: 400),
                   child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                    padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(8),
@@ -73,17 +80,17 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
                           ),
                           ignoreBlank: false,
                           autoValidateMode: AutovalidateMode.disabled,
-                          selectorTextStyle: TextStyle(color: Colors.black),
+                          selectorTextStyle: const TextStyle(color: Colors.black),
                           textFieldController: controller,
                           formatInput: false,
-                          maxLength: 9,
+                          maxLength: 10,
                           keyboardType:
-                          TextInputType.numberWithOptions(signed: true, decimal: true),
+                          const TextInputType.numberWithOptions(signed: true, decimal: true),
                           cursorColor: Colors.black,
                           inputDecoration: InputDecoration(
-                            contentPadding: EdgeInsets.only(bottom: 15, left: 0),
+                            contentPadding: const EdgeInsets.only(bottom: 15, left: 0),
                             border: InputBorder.none,
-                            hintText: 'Phone Number',
+                            hintText: 'Enter Your Phone Number',
                             hintStyle: TextStyle(color: Colors.grey.shade500, fontSize: 16),
                           ),
                           onSaved: (PhoneNumber number) {
@@ -104,9 +111,9 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
                     ),
                   ),
                 ),
-                SizedBox(height: 100,),
+                const SizedBox(height: 30),
                 FadeInDown(
-                  delay: Duration(milliseconds: 600),
+                  delay: const Duration(milliseconds: 600),
                   child: MaterialButton(
                     minWidth: double.infinity,
                     onPressed: () {
@@ -114,18 +121,18 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
                         _isLoading = true;
                       });
 
-                      Future.delayed(Duration(seconds: 2), () {
+                      Future.delayed(const Duration(seconds: 2), () {
                         setState(() {
                           _isLoading = false;
                         });
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Verificatoin()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Verificatoin(phoneNo: controller.text )));
                       });
                     },
                     color: Colors.black,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)
                     ),
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                    padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                     child: _isLoading  ? Container(
                       width: 20,
                       height: 20,
@@ -135,22 +142,24 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
                         strokeWidth: 2,
                       ),
                     ) :
-                    Text("Request OTP", style: TextStyle(color: Colors.white),),
+                    const Text("Request OTP", style: TextStyle(color: Colors.white),),
                   ),
                 ),
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
                 FadeInDown(
-                  delay: Duration(milliseconds: 800),
+                  delay: const Duration(milliseconds: 800),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text('Already have an account?', style: TextStyle(color: Colors.grey.shade700),),
-                      SizedBox(width: 5,),
+                      const SizedBox(width: 5,),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).pushReplacementNamed('/login');
+                          /*Navigator.of(context).pushReplacementNamed('/login');*/
+                          Navigator.pushReplacement(
+                              context, MaterialPageRoute(builder: (context) => const LoginPage()));
                         },
-                        child: Text('Login', style: TextStyle(color: Colors.black),),
+                        child: const Text('Login', style: TextStyle(color: Colors.black),),
                       )
                     ],
                   ),
