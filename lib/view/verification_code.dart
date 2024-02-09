@@ -198,7 +198,11 @@ class _VerificatoinState extends State<Verificatoin> {
                           strokeWidth: 3,
                           color: Colors.black,
                         ),
-                      ) : _isVerified ? const Icon(Icons.check_circle, color: Colors.white, size: 30,) : const Text("Verify", style: TextStyle(color: Colors.white),),
+                      ) : _isVerified ? const Icon(Icons.check_circle, color: Colors.white, size: 30,) : const Text("Verify", style: TextStyle(color: Colors.white),)
+   /* Navigator.pushReplacement(
+    context, MaterialPageRoute(builder: (context) => const BottomNavBar()));
+  })*/
+                      ,
                     ),
                   )
                 ],)
