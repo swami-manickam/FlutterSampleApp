@@ -1,7 +1,7 @@
 import 'package:firstflutter/view/LoginPage.dart';
 import 'package:firstflutter/view/SplashPage.dart';
 import 'package:flutter/material.dart';
-
+import 'package:firstflutter/view/onboarding_screen.dart';
 
 
 
@@ -19,6 +19,8 @@ class pallette {
 }
 
 Future<void> main() async {
+
+  bool showIntroScreen = true;
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(MaterialApp(
@@ -27,7 +29,9 @@ Future<void> main() async {
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
-      home: SplashPage()));
+      /*home: SplashPage()*/
+      home: showIntroScreen ? OnboardingScreen() : SplashPage()
+  ));
 }
 
 class Home extends StatelessWidget {
