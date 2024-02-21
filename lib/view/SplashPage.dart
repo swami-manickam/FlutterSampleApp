@@ -15,7 +15,6 @@ class SplashPage extends StatefulWidget{
 class SplashScreenState extends State<SplashPage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Future.delayed(const Duration(seconds: 4), () {
       Navigator.pushReplacement(
@@ -25,14 +24,20 @@ class SplashScreenState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
         backgroundColor: Colors.white,
         body: Center(
-          child: Image(
+          child:
+          Image.asset(
+            'assets/images/splash_banner.png',
+            width: 105,
+            height: 105,
+          )
+          /*Image(
             image: AssetImage("/images/splash_banner.png",package: 'firstflutter'),
             width: 105,
             height: 105,
-          ),
+          )*/,
         ));
   }
 }
