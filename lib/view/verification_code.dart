@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter_verification_code/flutter_verification_code.dart';
+import 'package:firstflutter/view/bottom_nav_bar.dart';
 
 class Verificatoin extends StatefulWidget {
 
@@ -186,7 +187,9 @@ class _VerificatoinState extends State<Verificatoin> {
                     duration: const Duration(milliseconds: 500),
                     child: MaterialButton(
                       elevation: 0,
-                      onPressed: _code.length < 4 ? () => {} : () { verify(); },
+                      onPressed: _code.length < 4 ? () => {} : () { verify();
+                        /*Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const BottomNavBar()))*/
+                        },
                       color: Colors.orange.shade400,
                       minWidth: MediaQuery.of(context).size.width * 0.8,
                       height: 50,
@@ -198,7 +201,8 @@ class _VerificatoinState extends State<Verificatoin> {
                           strokeWidth: 3,
                           color: Colors.black,
                         ),
-                      ) : _isVerified ? const Icon(Icons.check_circle, color: Colors.white, size: 30,) : const Text("Verify", style: TextStyle(color: Colors.white),)
+                      ) : _isVerified ? const Icon(Icons.check_circle, color: Colors.white, size: 30,) : const Text("Verify", style: TextStyle(color: Colors.white),
+                      )
    /* Navigator.pushReplacement(
     context, MaterialPageRoute(builder: (context) => const BottomNavBar()));
   })*/

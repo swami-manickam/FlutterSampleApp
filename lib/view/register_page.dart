@@ -3,6 +3,7 @@ import 'package:firstflutter/view/LoginPage.dart';
 import 'package:firstflutter/view/verification_code.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:firstflutter/view/random_words.dart';
 
 
 class RegisterWithPhoneNumber extends StatefulWidget {
@@ -125,7 +126,8 @@ class _RegisterWithPhoneNumberState extends State<RegisterWithPhoneNumber> {
                         setState(() {
                           _isLoading = false;
                         });
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Verificatoin(phoneNo: controller.text )));
+                        /*Navigator.push(context, MaterialPageRoute(builder: (context) => Verificatoin(phoneNo: controller.text )));*/
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => RandomWords()));
                       });
                     },
                     color: Colors.black,
