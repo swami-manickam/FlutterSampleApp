@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firstflutter/constants/size_config.dart';
 import 'package:firstflutter/view/onboarding_contents.dart';
+import 'package:firstflutter/view/signIn_ui.dart';
+import 'package:get/get.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -116,7 +118,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ? Padding(
                     padding: const EdgeInsets.all(30),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        /*Get.to(() => SignIn());*/
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) => SignIn()));
+                      },
                       child: const Text("START"),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
