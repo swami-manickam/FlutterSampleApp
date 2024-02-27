@@ -6,6 +6,7 @@ import 'package:firstflutter/view/signup_ui.dart';
 import 'package:get/get.dart';
 
 import 'package:firstflutter/view/form_validator.dart';
+import 'package:firstflutter/view/random_words.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -261,7 +262,10 @@ class _LoginUiTextState extends State<LoginUiText>
             width: MediaQuery.of(context).size.width,
             height: 63,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => RandomWords()));
+              },
               child: Text(
                 'Sign in',
                 style: TextStyle(
@@ -290,7 +294,9 @@ class _LoginUiTextState extends State<LoginUiText>
               ),
               TextButton(
                 onPressed: () {
-                  Get.to(() => SignUp());
+                  /*Get.to(() => SignUp());*/
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => SignUp()));
                 },
                 child: Text("Sign UP"),
               )

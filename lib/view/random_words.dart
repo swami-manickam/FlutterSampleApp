@@ -19,6 +19,13 @@ class RandomWordsState extends State<RandomWords> {
     return new Text(wordPair.asPascalCase);*/
     return new Scaffold (
       appBar: new AppBar(
+        bottom: const TabBar(
+          tabs: [
+            Tab(icon: Icon(Icons.directions_car)),
+            Tab(icon: Icon(Icons.directions_transit)),
+            Tab(icon: Icon(Icons.directions_bike)),
+          ],
+        ),
         title: new Text('Startup Name Generator'),
         actions: <Widget>[new IconButton(icon: const Icon(Icons.list), onPressed: _pushSaved),
         ],
