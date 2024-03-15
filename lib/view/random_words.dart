@@ -7,11 +7,33 @@ class RandomWords extends StatefulWidget {
 }
 
 
-class RandomWordsState extends State<RandomWords> {
+class RandomWordsState extends State<RandomWords> with TickerProviderStateMixin {
+
+  late TabController _controller ;
+  final List<Tab> topTabs = <Tab>[
+    new Tab(text: 'Home',icon: Icon(Icons.directions_car)),
+    new Tab(text: 'Match',icon: Icon(Icons.directions_transit)),
+    new Tab(text: 'Chat',icon: Icon(Icons.directions_bike)),
+  ];
 
   final List<WordPair> _suggestions = <WordPair>[];
   final Set<WordPair> _saved = new Set<WordPair>();
   final TextStyle _biggerFont = const TextStyle(fontSize: 18.0);
+
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = TabController(vsync: this, length: 3);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +41,36 @@ class RandomWordsState extends State<RandomWords> {
     return new Text(wordPair.asPascalCase);*/
     return new Scaffold (
       appBar: new AppBar(
-        bottom: const TabBar(
-          tabs: [
+        bottom: TabBar(
+          controller: _controller,
+          tabs: topTabs/*[
             Tab(icon: Icon(Icons.directions_car)),
             Tab(icon: Icon(Icons.directions_transit)),
             Tab(icon: Icon(Icons.directions_bike)),
-          ],
+          ]*/,
         ),
         title: new Text('Startup Name Generator'),
         actions: <Widget>[new IconButton(icon: const Icon(Icons.list), onPressed: _pushSaved),
         ],
       ),
-      body: _buildSuggestions(),
+      body:TabBarView(
+          controller: _controller,
+          children: [
+            new Container(
+              color: Colors.lightBlueAccent,
+              child: _buildSuggestions(),
+            ),
+            new Container(
+              color: Colors.purpleAccent,
+              child: Center(child: Text('Match', style: TextStyle(color: Colors.white),),),
+            ),
+            new Container(
+              color: Colors.lightGreenAccent,
+              child: Center(child: Text('Chat', style: TextStyle(color: Colors.white),),),
+            )
+          ]),
+
+      /*_buildSuggestions(),*/
     );
   }
 

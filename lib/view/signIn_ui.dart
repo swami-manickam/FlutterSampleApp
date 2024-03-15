@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 
 import 'package:firstflutter/view/form_validator.dart';
 import 'package:firstflutter/view/random_words.dart';
+import 'package:firstflutter/view/verify_pin.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -264,7 +265,7 @@ class _LoginUiTextState extends State<LoginUiText>
             child: TextButton(
               onPressed: () {
                 Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => RandomWords()));
+                    MaterialPageRoute(builder: (context) => VerifyPinScreen()));
               },
               child: Text(
                 'Sign in',
