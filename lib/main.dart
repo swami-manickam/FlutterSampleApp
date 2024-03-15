@@ -23,6 +23,8 @@ Future<void> main() async {
   bool showIntroScreen = true;
   WidgetsFlutterBinding.ensureInitialized();
 
+  //debuglnvertOversizedimages = true,
+
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "FirstFlutterApp",
